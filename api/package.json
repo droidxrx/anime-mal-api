@@ -1,6 +1,6 @@
 {
     "name": "anime-mal-api",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "MyAnimeList API V2",
     "main": "index.js",
     "repository": {
