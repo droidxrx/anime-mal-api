@@ -1,6 +1,9 @@
 {
     "name": "anime-mal-api",
     "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
+    "scripts": {
+        "publish": "npm version patch --workspace api && npm publish --workspace api"
+    },
     "devDependencies": {
         "@types/node": "^16.6.1",
         "babel-eslint": "^10.1.0",
