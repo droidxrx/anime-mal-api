@@ -1,6 +1,6 @@
-const { fetToken } = require("./fetchs");
+const { fetToken } = require("../fetchs");
+const pkceChallenge = require("../pkce-challenge");
 
-const pkceChallenge = require("./pkce-challenge");
 module.exports = class oauth2 {
     #client_id;
     #client_secret;
