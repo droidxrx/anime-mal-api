@@ -1,3 +1,4 @@
 const OAUTH2 = require("./src/oauth2");
+const anime = require("./src/mal_api/anime");
 exports.OAUTH2 = OAUTH2;
-exports.version = require("./package.json").version;
+exports.anime = anime;

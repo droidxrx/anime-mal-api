@@ -1,11 +1,21 @@
 const superagent = require("superagent");
 
-function fetToken(sendData) {
+function token(sendData) {
     return new Promise((resolve, reject) => {
-        const query = sendData;
-        const fet = superagent.post(query.url).send(query.params).type("application/x-www-form-urlencoded");
+        const fet = superagent.post("https://myanimelist.net/v1/oauth2/token").send(sendData).type("application/x-www-form-urlencoded");
         fet.then((response) => resolve(response.body)).catch((error) => reject(JSON.parse(error.response.text)));
     });
 }
 
-module.exports = { fetToken };
+function get(access_token, params, fields) {
+    const fet = superagent.agent().auth(access_token, { type: "bearer" });
+    return new Promise((resolve, reject) => {
+        fet.get(`https://api.myanimelist.net/v2/${params}`)
+            .query({ fields: fields.toString() })
+            .then((response) => resolve(response.body))
+            .catch((error) => reject(JSON.parse(error.response.text)));
+    });
+}
+
+exports.get = get;
+exports.token = token;
