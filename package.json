@@ -1,0 +1,14 @@
+{
+    "name": "anime-mal-api",
+    "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
+    "devDependencies": {
+        "@types/node": "^16.6.1",
+        "babel-eslint": "^10.1.0",
+        "cors": "^2.8.5",
+        "eslint": "^7.32.0",
+        "express": "^4.17.1"
+    },
+    "workspaces": [
+        "api"
+    ]
+}
