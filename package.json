@@ -6,8 +6,9 @@
         "pm2:test": "pm2 start ./ecosystem.config.js --only test --attach"
     },
     "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/eslint-parser": "^7.15.0",
         "@types/node": "^16.6.1",
-        "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0"
     },
     "workspaces": [

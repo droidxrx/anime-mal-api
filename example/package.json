@@ -4,7 +4,6 @@
     "main": "index.js",
     "devDependencies": {
         "cors": "^2.8.5",
-        "eslint": "^7.32.0",
         "express": "^4.17.1"
     }
 }
