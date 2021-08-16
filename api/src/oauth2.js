@@ -16,10 +16,11 @@ module.exports = class oauth2 {
     }
 
     /** Generate a PKCE challenge pair
+     * @param {number} [length] Optional Default 43 (Min 43, Max 128)
      * @returns {{code_challenge:string,code_verifier:string}} PKCE challenge pair
      */
-    generatePKCEChallenge() {
-        return pkceChallenge();
+    generatePKCEChallenge(length) {
+        return pkceChallenge(length);
     }
 
     /** Get Url Client requests OAuth 2.0 authentication
