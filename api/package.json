@@ -1,6 +1,6 @@
 {
     "name": "anime-mal-api",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "MyAnimeList API V2",
     "main": "index.js",
     "repository": {
@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "dependencies": {
+        "crypto-js": "^4.1.1",
         "superagent": "^6.1.0"
     }
 }

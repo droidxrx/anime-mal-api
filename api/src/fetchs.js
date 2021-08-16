@@ -11,7 +11,7 @@ function get(access_token, params, fields) {
     const fet = superagent.agent().auth(access_token, { type: "bearer" });
     return new Promise((resolve, reject) => {
         fet.get(`https://api.myanimelist.net/v2/${params}`)
-            .query({ fields: fields.toString() })
+            .query(fields)
             .then((response) => resolve(response.body))
             .catch((error) => reject(JSON.parse(error.response.text)));
     });
