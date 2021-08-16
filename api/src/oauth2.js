@@ -4,6 +4,7 @@ const pkceChallenge = require("./pkce-challenge");
 module.exports = class oauth2 {
     #client_id;
     #client_secret;
+    #redirect_uri;
     /**
      * @param {string} CLIENT_ID Required
      * @param {string} [CLIENT_SECRET] Optional
@@ -11,6 +12,7 @@ module.exports = class oauth2 {
     constructor(CLIENT_ID, CLIENT_SECRET = undefined) {
         this.#client_id = CLIENT_ID;
         this.#client_secret = CLIENT_SECRET;
+        this.#redirect_uri;
     }
 
     /** Generate a PKCE challenge pair
@@ -27,6 +29,7 @@ module.exports = class oauth2 {
      */
     urlAuthorize(CODE_CHALLENGE, urlRedirect) {
         const urlredirect = urlRedirect ? `&redirect_uri=${urlRedirect}` : "";
+        this.#redirect_uri = urlRedirect;
         return `https://myanimelist.net/v1/oauth2/authorize?response_type=code&client_id=${this.#client_id}&code_challenge=${CODE_CHALLENGE}&code_challenge_method=plain${urlredirect}`;
     }
 
@@ -36,6 +39,7 @@ module.exports = class oauth2 {
      */
     accessToken(code, codeVerifier) {
         const data = { client_id: this.#client_id, client_secret: this.#client_secret, code: code, code_verifier: codeVerifier, grant_type: "authorization_code" };
+        this.#redirect_uri && Object.assign(data, { redirect_uri: this.#redirect_uri });
         return token(data);
     }
 

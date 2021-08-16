@@ -2,7 +2,8 @@
     "name": "anime-mal-api",
     "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
     "scripts": {
-        "publish": "npm version patch --workspace api && npm publish --workspace api"
+        "publish": "npm version patch --workspace api && npm publish --workspace api",
+        "pm2:test": "pm2 start ./ecosystem.config.js --only test --attach"
     },
     "devDependencies": {
         "@types/node": "^16.6.1",
