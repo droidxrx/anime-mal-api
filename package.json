@@ -34,11 +34,8 @@
         "eslint-plugin-html": "^6.1.2",
         "express": "^4.17.1"
     },
-    "workspaces": [
-        "./packages/*"
-    ],
     "dependencies": {
-        "mal-api": "file:packages/mal-api",
-        "mal-token": "file:packages/mal-token"
+        "crypto-js": "^4.1.1",
+        "superagent": "^6.1.0"
     }
 }
