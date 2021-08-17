@@ -60,7 +60,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript">
             const advanceSearchAnimeById = $("#advanceSearchAnimeById .checkboxes ul");
-            const getStructures = $.getJSON("https://cdn.jsdelivr.net/npm/anime-mal-api@1.0.4/packages/mal-api/src/anime/structures.json");
+            const getStructures = $.getJSON("https://cdn.jsdelivr.net/npm/anime-mal-api@1.0.7/src/mal-api/src/anime/structures.json");
             getStructures.then(dataStructures);
             function dataStructures(data) {
                 const animeFull = data.animeFull;
