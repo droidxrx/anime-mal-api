@@ -2,6 +2,9 @@ const baseclass = require("../baseclass");
 const structures = require("./structures.json");
 
 module.exports = class anime extends baseclass {
+    /**
+     * @param {string} access_token
+     */
     constructor(access_token) {
         super(access_token);
     }

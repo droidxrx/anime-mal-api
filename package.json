@@ -1,6 +1,6 @@
 {
     "name": "anime-mal-api",
-    "version": "1.0.3",
+    "version": "1.0.2",
     "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
     "main": "index.js",
     "repository": {
@@ -21,13 +21,17 @@
     },
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "scripts": {
-        "publish": "npm version patch --workspace api && npm publish --workspace api"
+        "publish": "npm version patch && clean-publish",
+        "server": "node ./example/server.js"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",
         "@babel/eslint-parser": "^7.15.0",
         "@types/node": "^16.6.1",
-        "eslint": "^7.32.0"
+        "clean-publish": "^2.2.0",
+        "cors": "^2.8.5",
+        "eslint": "^7.32.0",
+        "express": "^4.17.1"
     },
     "workspaces": [
         "./packages/*"

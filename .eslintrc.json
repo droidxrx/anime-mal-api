@@ -1,6 +1,17 @@
 {
     "overrides": [
         {
+            "files": ["index.js"],
+            "env": {
+                "commonjs": true,
+                "node": true
+            },
+            "extends": "eslint:recommended",
+            "parserOptions": {
+                "ecmaVersion": 12
+            }
+        },
+        {
             "files": ["./packages/**/*.js"],
             "env": {
                 "commonjs": true,
@@ -13,8 +24,23 @@
                 "ecmaVersion": 12,
                 "sourceType": "script",
                 "requireConfigFile": false
+            }
+        },
+        {
+            "files": ["./example/**/*.js"],
+            "env": {
+                "browser": true,
+                "commonjs": true,
+                "es6": true,
+                "es2021": true,
+                "node": true,
+                "jquery": true
             },
-            "rules": {}
+            "extends": "eslint:recommended",
+            "parserOptions": {
+                "ecmaVersion": 12,
+                "sourceType": "script"
+            }
         }
     ]
 }
