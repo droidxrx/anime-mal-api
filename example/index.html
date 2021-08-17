@@ -20,14 +20,20 @@
                             Advance Search With Filters
                         </button>
                         <div class="collapse mt-3" id="advanceSearchAnimeById">
-                            <div class="card card-body">
-                                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                            </div>
+                            <div class="card card-body"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+            const advanceSearchAnimeById = $("#advanceSearchAnimeById .card.card-body");
+            const getStructures = $.getJSON("https://cdn.jsdelivr.net/npm/anime-mal-api@1.0.2/src/mal_api/anime/structures.json");
+            getStructures.then(dataStructures);
+            function dataStructures(data) {
+                console.log(data);
+            }
+        </script>
     </body>
 </html>

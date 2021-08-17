@@ -1,6 +1,6 @@
 {
     "name": "anime-mal-api",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
     "main": "index.js",
     "repository": {
@@ -31,6 +31,7 @@
         "clean-publish": "^2.2.0",
         "cors": "^2.8.5",
         "eslint": "^7.32.0",
+        "eslint-plugin-html": "^6.1.2",
         "express": "^4.17.1"
     },
     "workspaces": [
