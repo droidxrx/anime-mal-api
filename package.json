@@ -36,5 +36,9 @@
     },
     "workspaces": [
         "./packages/*"
-    ]
+    ],
+    "dependencies": {
+        "mal-api": "file:packages/mal-api",
+        "mal-token": "file:packages/mal-token"
+    }
 }
