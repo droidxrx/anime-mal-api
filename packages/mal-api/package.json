@@ -1,6 +1,6 @@
 {
-    "name": "anime-mal-api",
-    "version": "1.0.2",
+    "name": "mal-api",
+    "version": "1.0.0",
     "description": "MyAnimeList API V2",
     "main": "index.js",
     "repository": {
@@ -10,7 +10,9 @@
     "keywords": [
         "mal",
         "mal-api",
-        "myanimelist-api"
+        "mal-token",
+        "mal-token-generate",
+        "pkce"
     ],
     "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
     "license": "MIT",
@@ -19,7 +21,6 @@
     },
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "dependencies": {
-        "crypto-js": "^4.1.1",
         "superagent": "^6.1.0"
     }
 }

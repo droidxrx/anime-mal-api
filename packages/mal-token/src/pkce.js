@@ -12,9 +12,15 @@ function base64URL(string) {
 }
 
 function pkceChallenge(length) {
-    const verifier = generateRandomString(length ? (length < 43 ? 43 : length > 128 ? 128 : length) : 43);
+    const verifier = generateRandomString(length);
     const challenge = base64URL(CryptoJS.SHA256(verifier));
     return { code_challenge: challenge, code_verifier: verifier };
 }
 
-module.exports = pkceChallenge;
+function verifyChallenge(code_verifier, expectedChallenge) {
+    const actualChallenge = base64URL(CryptoJS.SHA256(code_verifier));
+    return actualChallenge === expectedChallenge;
+}
+
+exports.pkceChallenge = pkceChallenge;
+exports.verifyChallenge = verifyChallenge;

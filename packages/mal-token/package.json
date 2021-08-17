@@ -1,7 +1,7 @@
 {
-    "name": "anime-mal-api",
-    "version": "1.0.3",
-    "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
+    "name": "mal-token",
+    "version": "1.0.0",
+    "description": "MyAnimeList Token Generate",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -20,16 +20,8 @@
         "url": "https://github.com/droidxrx/anime-mal-api/issues"
     },
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
-    "scripts": {
-        "publish": "npm version patch --workspace api && npm publish --workspace api"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.15.0",
-        "@babel/eslint-parser": "^7.15.0",
-        "@types/node": "^16.6.1",
-        "eslint": "^7.32.0"
-    },
-    "workspaces": [
-        "./packages/*"
-    ]
+    "dependencies": {
+        "crypto-js": "^4.1.1",
+        "superagent": "^6.1.0"
+    }
 }

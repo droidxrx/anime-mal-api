@@ -1,7 +1,7 @@
 {
     "overrides": [
         {
-            "files": ["./api/**/*.js"],
+            "files": ["./packages/**/*.js"],
             "env": {
                 "commonjs": true,
                 "es6": true,
@@ -13,19 +13,6 @@
                 "ecmaVersion": 12,
                 "sourceType": "script",
                 "requireConfigFile": false
-            },
-            "rules": {}
-        },
-        {
-            "files": ["./example/**/*.js"],
-            "env": {
-                "commonjs": true,
-                "es6": true,
-                "node": true
-            },
-            "extends": "eslint:recommended",
-            "parserOptions": {
-                "ecmaVersion": 12
             },
             "rules": {}
         }
