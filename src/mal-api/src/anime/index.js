@@ -11,11 +11,12 @@ module.exports = class anime extends baseclass {
 
     /**
      * Specific anime by id, and return the anime with all details
-     * @param  {Number} id
-     * @param {Array<string>} fields See me {@link structures.animeFull}
+     * @param {Object} object
+     * @param  {Number} object.id
+     * @param {Array<string>|string} [object.fields] See me {@link structures.animeFull}
      * @returns {Promise<object>}
      */
-    animeid(id, fields = structures.animeFull) {
+    animeId({ id, fields = structures.animeFull }) {
         return new Promise((resolve, reject) => {
             this.http(`/anime/${id}`)
                 .query({ fields: fields.toString() })
@@ -26,13 +27,14 @@ module.exports = class anime extends baseclass {
 
     /**
      * List of animes via a query text search
-     * @param  {String} q Search Query Minimal 3 Digits
-     * @param  {Number} offset Default 0
-     * @param  {Number} limit Default 100
-     * @param {Array<string>} fields See me {@link structures.animeInList}
+     * @param {Object} object
+     * @param  {String} object.q Search Query Minimal 3 Digits
+     * @param  {Number} [object.offset] Default 0
+     * @param  {Number} [object.limit] Default 100
+     * @param {Array<string> | string} [object.fields] See me {@link structures.animeInList}
      * @returns {Promise<object>}
      */
-    animeSearch(q, offset = 0, limit = 100, fields = structures.animeInList) {
+    animeSearch({ q, offset = 0, limit = 100, fields = structures.animeInList }) {
         return new Promise((resolve, reject) => {
             this.http("/anime")
                 .query({ q, limit, offset, fields: fields.toString() })
