@@ -9,6 +9,9 @@ class oauth2 {
         this.client_id = CLIENT_ID;
         this.client_secret = CLIENT_SECRET;
     }
+    /**
+     * @param {number} length Optional default 43 (Min.43, Max 128)
+     */
     generatePKCEChallenge(length = 43) {
         if (length < 43)
             return console.log("Length Minimal 43");

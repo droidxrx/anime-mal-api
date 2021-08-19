@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("./loadWriteJson");
 const path = require("path");
-const MAP_API = require("..");
+const MAP_API = require("../");
 
 const PORT = 8080;
 const LOCALHOST = `http://localhost:${PORT}`;
@@ -66,9 +66,9 @@ app.get("/search/:anime", (req, res) => {
     function thenorcatch(response) {
         const isError = "error" in response;
         if (!isError) {
-            return res.json({ status: true, result: response });
+            return res.json(response);
         }
-        res.json(Object.assign({ status: false }, response));
+        res.json(response);
     }
 });
 app.listen(PORT, () => {

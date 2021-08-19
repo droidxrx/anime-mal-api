@@ -1,14 +1,12 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "commonjs",
         "target": "ES6",
-        "moduleResolution": "node",
         "esModuleInterop": true,
-        "noImplicitUseStrict": true,
-        "rootDir": "./typescript",
-        "outDir": "dist",
         "resolveJsonModule": true,
-        "declaration": false,
-        "removeComments": true
+        "noImplicitAny": true,
+        "noImplicitUseStrict": true,
+        "outDir": "./dist",
+        "rootDir": "./src"
     }
 }

@@ -4,7 +4,7 @@
     },
     "entries": [
         {
-            "filePath": "./typescript/index.ts",
+            "filePath": "./src/index.ts",
             "outFile": "./dist/index.d.ts",
             "output": {
                 "noBanner": true
