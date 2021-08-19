@@ -8,7 +8,7 @@ const PORT = 8080;
 const LOCALHOST = `http://localhost:${PORT}`;
 const urlRedirect = `${LOCALHOST}/oauth2`;
 
-const CLIENT_ID = "0b9ce2d2253456ec76cb2b974fe5bc6f";
+const CLIENT_ID = "YOUR_CLIENT_ID";
 const CLIENT_SECRET = undefined;
 const MAL_TOKEN = new MAP_API.MAL_OAUTH2(CLIENT_ID, CLIENT_SECRET /** CLIENT_SECRET is optional */);
 
