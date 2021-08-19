@@ -1,0 +1,14 @@
+{
+    "compilationOptions": {
+        "preferredConfigPath": "./dtsconfig.json"
+    },
+    "entries": [
+        {
+            "filePath": "./typescript/index.ts",
+            "outFile": "./dist/index.d.ts",
+            "output": {
+                "noBanner": true
+            }
+        }
+    ]
+}

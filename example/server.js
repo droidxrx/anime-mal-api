@@ -8,9 +8,9 @@ const PORT = 8080;
 const LOCALHOST = `http://localhost:${PORT}`;
 const urlRedirect = `${LOCALHOST}/oauth2`;
 
-const CLIENT_ID = "YOUR_CLIENT_ID";
+const CLIENT_ID = "0b9ce2d2253456ec76cb2b974fe5bc6f";
 const CLIENT_SECRET = undefined;
-const MAL_TOKEN = new MAP_API.MAL_TOKEN(CLIENT_ID, CLIENT_SECRET /** CLIENT_SECRET is optional */);
+const MAL_TOKEN = new MAP_API.MAL_OAUTH2(CLIENT_ID, CLIENT_SECRET /** CLIENT_SECRET is optional */);
 
 const pkce = MAL_TOKEN.generatePKCEChallenge();
 const urlOAUTH2 = MAL_TOKEN.urlAuthorize(pkce.code_challenge, urlRedirect /** urlRedirect is optional */);
@@ -50,9 +50,8 @@ app.get("/oauth2/:params?", (req, res) => {
     }
 });
 
-const MAL_API_ANIME = new MAP_API.MAL_API_ANIME(fs.loadData(db).token.access_token);
-
 app.get("/search/:anime", (req, res) => {
+    const MAL_API_ANIME = new MAP_API.MAL_API_ANIME(fs.loadData(db).token.access_token);
     const params = req.params.anime;
     const query = req.query;
 

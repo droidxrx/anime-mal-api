@@ -2,7 +2,8 @@
     "name": "anime-mal-api",
     "version": "1.0.8",
     "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
-    "main": "index.js",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/droidxrx/anime-mal-api.git"
@@ -22,23 +23,40 @@
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "scripts": {
         "publish": "npm version patch && clean-publish",
-        "server": "node ./example/server.js"
+        "server": "node ./example/server.js",
+        "tscomple": "rmdir /s /q dist && tsc -p tsconfig.json && npm run tsd",
+        "tsd": "dts-bundle-generator --config dtsgenerate.json"
     },
     "devDependencies": {
-        "@babel/core": "^7.15.0",
-        "@babel/eslint-parser": "^7.15.0",
+        "@types/crypto-js": "^4.0.2",
         "@types/node": "^16.6.1",
+        "@types/superagent": "^4.1.12",
         "clean-publish": "^2.2.0",
         "cors": "^2.8.5",
-        "eslint": "^7.32.0",
-        "eslint-plugin-html": "^6.1.2",
-        "express": "^4.17.1",
-        "install": "^0.13.0",
-        "load-json-file": "^6.2.0",
-        "write-json-file": "^5.0.0"
+        "dts-bundle-generator": "^5.9.0",
+        "express": "^4.17.1"
     },
     "dependencies": {
         "crypto-js": "^4.1.1",
         "superagent": "^6.1.0"
+    },
+    "clean-publish": {
+        "files": [
+            ".git",
+            ".vscode",
+            "example",
+            "node_modules",
+            "typescript",
+            "test",
+            "package-lock.json",
+            "tsconfig.json",
+            "dtsgenerate.json",
+            "dtsconfig.json"
+        ],
+        "fields": [
+            "scripts",
+            "devDependencies",
+            "clean-publish"
+        ]
     }
 }
