@@ -2,8 +2,8 @@
     "name": "anime-mal-api",
     "version": "1.0.0",
     "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/droidxrx/anime-mal-api.git"
@@ -23,8 +23,8 @@
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "scripts": {
         "publish": "clean-publish",
-        "parcel": "parcel build ./src/index.ts --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist",
-        "parcelbrowser": "parcel build ./index.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./lib && minify.cmd lib"
+        "parcel": "parcel build ./src/node.ts --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./lib && minify.cmd lib",
+        "parcelbrowser": "parcel build ./src/browser.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist"
     },
     "dependencies": {
         "crypto-js": "^4.1.1",

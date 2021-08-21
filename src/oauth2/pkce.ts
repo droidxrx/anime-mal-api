@@ -2,10 +2,8 @@ import { SHA256, enc } from "crypto-js";
 
 function generateRandomString(length: number): string {
     let text = "";
-    const possible =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
-    for (let i = 0; i < length; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
+    for (let i = 0; i < length; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
 }
 
@@ -19,12 +17,7 @@ export function pkceChallenge(length: number) {
     return { code_challenge: challenge, code_verifier: verifier };
 }
 
-export function verifyChallenge(
-    code_verifier: string,
-    expectedChallenge: string
-) {
-    const actualChallenge = base64URL(
-        SHA256(code_verifier).toString(enc.Base64)
-    );
+export function verifyChallenge(code_verifier: string, expectedChallenge: string) {
+    const actualChallenge = base64URL(SHA256(code_verifier).toString(enc.Base64));
     return actualChallenge === expectedChallenge;
 }

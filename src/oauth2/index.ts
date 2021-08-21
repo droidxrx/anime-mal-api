@@ -19,7 +19,7 @@ export default class oauth2 {
         else if (length > 128) return console.log("Length Maximal 128");
         return pkceChallenge(length);
     }
-    
+
     verifyPKCEChallenge(CODE_VERIFIER: string, CODE_CHALLENGE: string) {
         return verifyChallenge(CODE_VERIFIER, CODE_CHALLENGE);
     }
@@ -31,7 +31,13 @@ export default class oauth2 {
     }
 
     accessToken(code: string, codeVerifier: string): Promise<object> {
-        const data = { client_id: this.client_id, client_secret: this.client_secret, code: code, code_verifier: codeVerifier, grant_type: "authorization_code" };
+        const data = {
+            client_id: this.client_id,
+            client_secret: this.client_secret,
+            code: code,
+            code_verifier: codeVerifier,
+            grant_type: "authorization_code",
+        };
         this.redirect_uri && Object.assign(data, { redirect_uri: this.redirect_uri });
         return new Promise((resolve, reject) => {
             const fet = post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
@@ -40,7 +46,12 @@ export default class oauth2 {
     }
 
     refreshToken(refresh_token: string): Promise<object> {
-        const data = { client_id: this.client_id, client_secret: this.client_secret, refresh_token: refresh_token, grant_type: "refresh_token" };
+        const data = {
+            client_id: this.client_id,
+            client_secret: this.client_secret,
+            refresh_token: refresh_token,
+            grant_type: "refresh_token",
+        };
         return new Promise((resolve, reject) => {
             const fet = post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
             fet.then((response) => resolve(response.body)).catch((error) => reject(JSON.parse(error.response.text)));

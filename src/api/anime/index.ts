@@ -15,16 +15,7 @@ type animeSearch = {
 };
 
 type animeRanking = {
-    ranking_type?:
-        | "all"
-        | "airing"
-        | "upcoming"
-        | "tv"
-        | "ova"
-        | "movie"
-        | "special"
-        | "bypopularity"
-        | "favorite";
+    ranking_type?: "all" | "airing" | "upcoming" | "tv" | "ova" | "movie" | "special" | "bypopularity" | "favorite";
     offset?: number;
     limit?: number;
     fields?: string[] | string;
@@ -50,22 +41,8 @@ export default class anime extends baseclass {
      * @property id — must number
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L2 animeFull}
      */
-    animeId({ id, fields = structures.animeFull }: animeId): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get(`/anime/${id}`)
-                .query({ fields: fields.toString() })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    animeId({ id, fields = structures.animeFull }: animeId) {
+        return this.get(`/anime/${id}`, { fields: fields.toString() });
     }
 
     /**
@@ -75,27 +52,9 @@ export default class anime extends baseclass {
      * @property limit — must number default 100
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
-    animeSearch({
-        q,
-        offset = 0,
-        limit = 100,
-        fields = structures.animeInList,
-    }: animeSearch): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get("/anime")
-                .query({ q, limit, offset, fields: fields.toString() })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    animeSearch({ q, offset = 0, limit = 100, fields = structures.animeInList }: animeSearch) {
+        const query = { q, limit, offset, fields: fields.toString() };
+        return this.get(`/anime`, query);
     }
 
     /**
@@ -105,32 +64,9 @@ export default class anime extends baseclass {
      * @property limit — number default 100
      * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
-    animeRanking({
-        ranking_type = "all",
-        offset = 0,
-        limit = 100,
-        fields = structures.animeInList,
-    }: animeRanking): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get("/anime/ranking")
-                .query({
-                    ranking_type,
-                    limit,
-                    offset,
-                    fields: fields.toString(),
-                })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    animeRanking({ ranking_type = "all", offset = 0, limit = 100, fields = structures.animeInList }: animeRanking) {
+        const query = { ranking_type, limit, offset, fields: fields.toString() };
+        return this.get(`/anime/ranking`, query);
     }
 
     /**
@@ -149,36 +85,9 @@ export default class anime extends baseclass {
         limit = 100,
         sort = "",
         fields = structures.animeInList,
-    }: animeSeasonal): Promise<object> {
-        return new Promise((resolve, reject) => {
-            if (this.utils.checkIfMonthIsValid(season)) {
-                this.get("/anime/ranking")
-                    .query({
-                        year,
-                        season,
-                        offset,
-                        limit,
-                        sort,
-                        fields: fields.toString(),
-                    })
-                    .then((response) =>
-                        resolve({ status: true, result: response.body })
-                    )
-                    .catch((error) =>
-                        reject(
-                            Object.assign(
-                                { status: false },
-                                JSON.parse(error.response.text)
-                            )
-                        )
-                    );
-            } else {
-                reject({
-                    status: false,
-                    error: "Enter a valid season: winter, spring, summer, fall",
-                });
-            }
-        });
+    }: animeSeasonal) {
+        const query = { year, season, offset, limit, sort, fields: fields.toString() };
+        return this.get(`/anime/season/${year}/${season}`, query);
     }
 
     /**
@@ -187,29 +96,8 @@ export default class anime extends baseclass {
      * @property limit — number default 100
      * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
-    animeSuggestions(
-        offset = 0,
-        limit = 100,
-        fields = structures.animeInList
-    ): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get("/anime/suggestions")
-                .query({
-                    offset,
-                    limit,
-                    fields: fields.toString(),
-                })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    animeSuggestions(offset = 0, limit = 100, fields = structures.animeInList) {
+        const query = { offset, limit, fields: fields.toString() };
+        return this.get("/anime/suggestions", query);
     }
 }

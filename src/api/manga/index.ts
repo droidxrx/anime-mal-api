@@ -39,22 +39,9 @@ export default class manga extends baseclass {
      * @property id — must number
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/manga/structures.ts#L2 mangaFull}
      */
-    mangaId({ id, fields = structures.mangaFull }: mangaId): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get(`/manga/${id}`)
-                .query({ fields: fields.toString() })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    mangaId({ id, fields = structures.mangaFull }: mangaId) {
+        const query = { fields: fields.toString() };
+        return this.get(`/manga/${id}`, query);
     }
 
     /**
@@ -64,27 +51,9 @@ export default class manga extends baseclass {
      * @property limit — must number default 100
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/manga/structures.ts#L32 mangaInList}
      */
-    mangaSearch({
-        q,
-        offset = 0,
-        limit = 100,
-        fields = structures.mangaInList,
-    }: mangaSearch): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get("/manga")
-                .query({ q, limit, offset, fields: fields.toString() })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    mangaSearch({ q, offset = 0, limit = 100, fields = structures.mangaInList }: mangaSearch) {
+        const query = { q, limit, offset, fields: fields.toString() };
+        return this.get("/manga", query);
     }
 
     /**
@@ -94,31 +63,8 @@ export default class manga extends baseclass {
      * @property limit — number default 100
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/manga/structures.ts#L32 mangaInList}
      */
-    mangaRanking({
-        ranking_type = "all",
-        offset = 0,
-        limit = 100,
-        fields = structures.mangaInList,
-    }: mangaRanking): Promise<object> {
-        return new Promise((resolve, reject) => {
-            this.get("/manga/ranking")
-                .query({
-                    ranking_type,
-                    limit,
-                    offset,
-                    fields: fields.toString(),
-                })
-                .then((response) =>
-                    resolve({ status: true, result: response.body })
-                )
-                .catch((error) =>
-                    reject(
-                        Object.assign(
-                            { status: false },
-                            JSON.parse(error.response.text)
-                        )
-                    )
-                );
-        });
+    mangaRanking({ ranking_type = "all", offset = 0, limit = 100, fields = structures.mangaInList }: mangaRanking) {
+        const query = { ranking_type, limit, offset, fields: fields.toString() };
+        return this.get("/manga/ranking", query);
     }
 }
