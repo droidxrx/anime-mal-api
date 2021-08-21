@@ -44,7 +44,8 @@
             "dtsgenerate.json",
             "dtsconfig.json",
             "src",
-            "minify.cmd"
+            "minify.cmd",
+            "dist"
         ],
         "fields": [
             "scripts",
