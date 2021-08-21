@@ -3,6 +3,6 @@
 
   <p align="center">
     An awesome library to connect with the new MyAnimeList's API v2!<br />
-    <a href="https://github.com/droidxrx/anime-mal-api"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/droidxrx/anime-mal-api"><strong>Explore the docs »</strong></a> <a href="https://github.com/droidxrx/anime-mal-api/tree/master/example"><strong>Example with Express</strong></a>
   </p>
 </p>
