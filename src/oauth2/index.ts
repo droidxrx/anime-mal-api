@@ -14,15 +14,12 @@ export default class oauth2 {
         this.client_secret = CLIENT_SECRET;
     }
 
-    /**
-     * @param {number} length Optional default 43 (Min.43, Max 128)
-     */
     generatePKCEChallenge(length: number = 43) {
         if (length < 43) return console.log("Length Minimal 43");
         else if (length > 128) return console.log("Length Maximal 128");
         return pkceChallenge(length);
     }
-
+    
     verifyPKCEChallenge(CODE_VERIFIER: string, CODE_CHALLENGE: string) {
         return verifyChallenge(CODE_VERIFIER, CODE_CHALLENGE);
     }

@@ -7,6 +7,8 @@ export default class baseclass {
     }
 
     get(params: string) {
-        return fetGet(`${this.urlBase}${params}`).auth(this.token, { type: "bearer" });
+        return fetGet(`${this.urlBase}${params}`).auth(this.token, {
+            type: "bearer",
+        });
     }
 }

@@ -1,5 +1,5 @@
-{
-    "animeFull": [
+export default {
+    animeFull: [
         "id",
         "title",
         "main_picture",
@@ -31,9 +31,9 @@
         "related_anime",
         "related_manga",
         "recommendations",
-        "statistics"
+        "statistics",
     ],
-    "animeInList": [
+    animeInList: [
         "id",
         "title",
         "main_picture",
@@ -59,6 +59,6 @@
         "source",
         "average_episode_duration",
         "rating",
-        "studios"
-    ]
-}
+        "studios",
+    ],
+};

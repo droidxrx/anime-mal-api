@@ -1,5 +1,5 @@
-{
-    "animeFull": [
+export default {
+    mangaFull: [
         "id",
         "title",
         "main_picture",
@@ -19,21 +19,17 @@
         "media_type",
         "status",
         "my_list_status",
-        "num_episodes",
-        "start_season",
-        "broadcast",
-        "source",
-        "average_episode_duration",
-        "rating",
-        "studios",
+        "num_volumes",
+        "num_chapters",
+        "authors",
         "pictures",
         "background",
         "related_anime",
         "related_manga",
         "recommendations",
-        "statistics"
+        "serialization",
     ],
-    "animeInList": [
+    mangaInList: [
         "id",
         "title",
         "main_picture",
@@ -53,12 +49,8 @@
         "media_type",
         "status",
         "my_list_status",
-        "num_episodes",
-        "start_season",
-        "broadcast",
-        "source",
-        "average_episode_duration",
-        "rating",
-        "studios"
-    ]
-}
+        "num_volumes",
+        "num_chapters",
+        "authors",
+    ],
+};
