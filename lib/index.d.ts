@@ -11,9 +11,6 @@ export class MAL_OAUTH2 {
 }
 declare class baseclass {
     constructor(access_token: string);
-    get(params: string, query: object): Promise<object>;
-    del(animeOrManga: string, id: number): Promise<object>;
-    put(animeOrManga: string, id: number, query: object): Promise<object>;
 }
 type animeId = {
     id: number;

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Example MAL Api</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <style>
+            .checkboxes ul {
+                margin: 0;
+                list-style: none;
+            }
+            @media only screen and (min-width: 768px) {
+                .checkboxes ul {
+                    columns: 2;
+                    -webkit-columns: 2;
+                    -moz-columns: 2;
+                }
+            }
+            @media only screen and (min-width: 1000px) {
+                .checkboxes ul {
+                    columns: 3;
+                    -webkit-columns: 3;
+                    -moz-columns: 3;
+                }
+            }
+            @media only screen and (min-width: 1200px) {
+                .checkboxes ul {
+                    columns: 4;
+                    -webkit-columns: 4;
+                    -moz-columns: 4;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-3 mb-3">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="card p-3 py-4">
+                        <div class="text-center mb-3"><h5>ANIME</h5></div>
+                        <form class="d-flex mb-3" id="animeById">
+                            <span class="input-group-text" id="AnimebyIDD">ID</span>
+                            <input
+                                class="form-control me-2"
+                                type="number"
+                                placeholder="Search Anime By Id"
+                                aria-label="Search Anime By Id"
+                                aria-describedby="AnimebyIDD"
+                            />
+                            <button
+                                class="btn btn-outline-success"
+                                type="submit"
+                                data-target-id="#advanceSearchAnimeById"
+                                data-url="/search/anime?"
+                                onclick="searchClicked(event, this)"
+                            >
+                                Search
+                            </button>
+                        </form>
+                        <button
+                            class="btn btn-primary"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#advanceSearchAnimeById"
+                            aria-expanded="false"
+                            aria-controls="advanceSearchAnimeById"
+                        >
+                            Advance Search With Filters
+                        </button>
+                        <div class="collapse mt-3" id="advanceSearchAnimeById">
+                            <div class="card card-body">
+                                <div class="checkboxes">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="d-flex mt-3 mb-3" id="animeByQuery">
+                            <span class="input-group-text" id="animeByQueryy">Query</span>
+                            <input
+                                class="form-control me-2"
+                                type="search"
+                                placeholder="Search Anime"
+                                aria-label="Search Anime"
+                                aria-describedby="animeByQueryy"
+                            />
+                            <button
+                                class="btn btn-outline-success"
+                                type="submit"
+                                data-target-id="#advanceAnimeByQuery"
+                                data-url="/search/anime?"
+                                onclick="searchClicked(event, this)"
+                            >
+                                Search
+                            </button>
+                        </form>
+                        <button
+                            class="btn btn-primary"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#advanceAnimeByQuery"
+                            aria-expanded="false"
+                            aria-controls="advanceAnimeByQuery"
+                        >
+                            Advance Search With Filters
+                        </button>
+                        <div class="collapse mt-3" id="advanceAnimeByQuery">
+                            <div class="card card-body">
+                                <div class="checkboxes">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="result-limit">limit</span>
+                                        <input
+                                            id="input-limit"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="Limit default 100"
+                                            aria-label="limit"
+                                            aria-describedby="result-limit"
+                                        />
+                                        <span class="input-group-text" id="result-offset">offset</span>
+                                        <input
+                                            id="input-offset"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="offset default 0"
+                                            aria-label="offset"
+                                            aria-describedby="result-offset"
+                                        />
+                                    </div>
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="btn btn-primary mt-3"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#advanceAnimeByRangking"
+                            aria-expanded="false"
+                            aria-controls="advanceAnimeByRangking"
+                        >
+                            Advance Search Anime Rangking
+                        </button>
+                        <div class="collapse mt-3" id="advanceAnimeByRangking">
+                            <div class="card card-body">
+                                <div class="checkboxes">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="result-limit">limit</span>
+                                        <input
+                                            id="input-limit"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="Limit default 100"
+                                            aria-label="limit"
+                                            aria-describedby="result-limit"
+                                        />
+                                        <span class="input-group-text" id="result-offset">offset</span>
+                                        <input
+                                            id="input-offset"
+                                            type="number"
+                                            class="form-control"
+                                            placeholder="offset default 0"
+                                            aria-label="offset"
+                                            aria-describedby="result-offset"
+                                        />
+                                        <label class="input-group-text" for="ranking_type">Rangking Type</label>
+                                        <select class="form-select" id="ranking_type">
+                                            <option value="all" selected>All</option>
+                                            <option value="airing">Airing</option>
+                                            <option value="upcoming">Up Coming</option>
+                                            <option value="tv">TV</option>
+                                            <option value="ova">OVA</option>
+                                            <option value="movie">Movie</option>
+                                            <option value="special">Special</option>
+                                            <option value="bypopularity">By Popularity</option>
+                                            <option value="favorite">Favorite</option>
+                                        </select>
+                                        <button
+                                            class="btn btn-outline-success"
+                                            type="button"
+                                            data-url="/search/anime?"
+                                            data-type="ranking_type"
+                                            data-target-id="#advanceAnimeByRangking"
+                                            onclick="searchClicked2(this)"
+                                        >
+                                            Search
+                                        </button>
+                                    </div>
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Result -->
+        <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resultModalLabel">Result Search</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code></code></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/src/js/structures.js"></script>
+        <script src="/src/js/main.js"></script>
+    </body>
+</html>
