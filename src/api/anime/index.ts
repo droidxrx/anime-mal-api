@@ -48,7 +48,7 @@ export default class anime extends baseclass {
     /**
      * Specific anime by id, and return the anime with all details
      * @property id — must number
-     * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/typescript/src/api/anime/structures.ts animeFull}
+     * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L2 animeFull}
      */
     animeId({ id, fields = structures.animeFull }: animeId): Promise<object> {
         return new Promise((resolve, reject) => {
@@ -73,7 +73,7 @@ export default class anime extends baseclass {
      * @property q — Text
      * @property offset — must number default 0
      * @property limit — must number default 100
-     * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/typescript/src/api/anime/structures.ts animeInList}
+     * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
     animeSearch({
         q,
@@ -103,7 +103,7 @@ export default class anime extends baseclass {
      * @property ranking_type — string {@link animeRanking.ranking_type ranking_type}
      * @property offset — number default 0
      * @property limit — number default 100
-     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/typescript/src/api/anime/structures.ts animeInList}
+     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
     animeRanking({
         ranking_type = "all",
@@ -140,7 +140,7 @@ export default class anime extends baseclass {
      * @property offset — number default 0
      * @property limit — number default 100
      * @property sort — string default "" {@link animeSeasonal.sort Click me}
-     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/typescript/src/api/anime/structures.ts animeInList}
+     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
     animeSeasonal({
         year = new Date().getFullYear(),
@@ -185,7 +185,7 @@ export default class anime extends baseclass {
      * Anime suggestion from MAL
      * @property offset — number default 0
      * @property limit — number default 100
-     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/typescript/src/api/anime/structures.ts animeInList}
+     * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
     animeSuggestions(
         offset = 0,
