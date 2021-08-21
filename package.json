@@ -22,8 +22,7 @@
     },
     "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
     "scripts": {
-        "publish": "clean-publish --without-publish",
-        "minify": "terser ./dist/index.js -o ./dist/index.js --compress pure_funcs --keep-classnames --keep-fnames --comments false",
+        "publish": "clean-publish",
         "parcel": "parcel build ./src/index.ts --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist",
         "parcelbrowser": "parcel build ./index.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./lib && minify.cmd lib"
     },
