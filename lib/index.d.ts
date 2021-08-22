@@ -1,4 +1,10 @@
-export class MAL_OAUTH2 {
+declare class oauth2 {
+    private client_id;
+    private client_secret;
+    private redirect_uri;
+    private baseurl;
+    private urlRedirect;
+    private urlToken;
     constructor(CLIENT_ID: string, CLIENT_SECRET?: string);
     generatePKCEChallenge(length?: number): void | {
         code_challenge: string;
@@ -9,8 +15,16 @@ export class MAL_OAUTH2 {
     accessToken(code: string, codeVerifier: string): Promise<object>;
     refreshToken(refresh_token: string): Promise<object>;
 }
+declare module oauth2Wrapper {
+    export { oauth2 };
+}
+import MAL_OAUTH2 = oauth2Wrapper.oauth2;
 declare class baseclass {
+    private urlBase;
+    private token;
+    private agent;
     constructor(access_token: string);
+    private callback;
     get(params: string, query: object): Promise<object>;
     del(animeOrManga: string, id: number): Promise<object>;
     put(animeOrManga: string, id: number, query: object): Promise<object>;
@@ -39,7 +53,8 @@ type animeSeasonal = {
     sort?: "anime_score" | "anime_num_list_users" | "";
     fields?: string[] | string;
 };
-export class MAL_API_ANIME extends baseclass {
+declare class anime extends baseclass {
+    private utils;
     constructor(access_token: string);
     /**
      * Specific anime by id, and return the anime with all details
@@ -72,7 +87,7 @@ export class MAL_API_ANIME extends baseclass {
      * @property sort — string default "" {@link animeSeasonal.sort Click me}
      * @property fields — array / string {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/anime/structures.ts#L36 animeInList}
      */
-    animeSeasonal({ year, season, offset, limit, sort, fields, }: animeSeasonal): Promise<object>;
+    animeSeasonal({ year, season, offset, limit, sort, fields }: animeSeasonal): Promise<object>;
     /**
      * Anime suggestion from MAL
      * @property offset — number default 0
@@ -81,6 +96,10 @@ export class MAL_API_ANIME extends baseclass {
      */
     animeSuggestions(offset?: number, limit?: number, fields?: string[]): Promise<object>;
 }
+declare module animeWrapper {
+    export { anime };
+}
+import MAL_API_ANIME = animeWrapper.anime;
 type getList = {
     user_name?: string;
     offset?: number;
@@ -98,7 +117,7 @@ type updateList = {
     tags: string;
     comments: string;
 };
-export class MAL_API_ANIME_LIST extends baseclass {
+declare class anime_list extends baseclass {
     constructor(access_token: string);
     /**
      * Get list anime from a user
@@ -119,6 +138,10 @@ export class MAL_API_ANIME_LIST extends baseclass {
      */
     updateList(anime_id: number, fieldsToUdpate: updateList): Promise<object>;
 }
+declare module anime_listWrapper {
+    export { anime_list };
+}
+import MAL_API_ANIME_LIST = anime_listWrapper.anime_list;
 type mangaId = {
     id: number;
     fields?: string[] | string;
@@ -135,7 +158,7 @@ type mangaRanking = {
     limit?: number;
     fields?: string[] | string;
 };
-export class MAL_API_MANGA extends baseclass {
+declare class manga extends baseclass {
     constructor(access_token: string);
     /**
      * Specific manga by id, and return the manga with all details
@@ -160,13 +183,17 @@ export class MAL_API_MANGA extends baseclass {
      */
     mangaRanking({ ranking_type, offset, limit, fields }: mangaRanking): Promise<object>;
 }
-type _getList1 = {
+declare module mangaWrapper {
+    export { manga };
+}
+import MAL_API_MANGA = mangaWrapper.manga;
+type getList$0 = {
     user_name?: string;
     offset?: number;
     limit?: number;
     fields?: string[];
 };
-type _updateList1 = {
+type updateList$0 = {
     status: "reading" | "completed" | "on_hold" | "dropped" | "plan_to_read";
     is_rereading: boolean;
     score: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -178,7 +205,7 @@ type _updateList1 = {
     tags: string;
     comments: string;
 };
-export class MAL_API_MANGA_LIST extends baseclass {
+declare class manga_list extends baseclass {
     constructor(access_token: string);
     /**
      * Get list anime from a user
@@ -187,7 +214,7 @@ export class MAL_API_MANGA_LIST extends baseclass {
      * @property limit — number default 100
      * @property fields — {@link https://github.com/droidxrx/anime-mal-api/blob/master/src/api/manga-list/structures.ts click me}
      */
-    _getList1({ user_name, offset, limit, fields }: _getList1): Promise<object>;
+    getList({ user_name, offset, limit, fields }: getList$0): Promise<object>;
     /**
      * Delete a entry of the user's list.
      */
@@ -197,10 +224,14 @@ export class MAL_API_MANGA_LIST extends baseclass {
      * @param  {number} anime_id
      * @param  {object} fieldsToUdpate {@link updateList click me}
      */
-    _updateList1(anime_id: number, fieldsToUdpate: _updateList1): Promise<object>;
+    updateList(anime_id: number, fieldsToUdpate: updateList$0): Promise<object>;
 }
+declare module manga_listWrapper {
+    export { manga_list };
+}
+import MAL_API_MANGA_LIST = manga_listWrapper.manga_list;
 type me = string[] | string;
-export class MAL_API_USER extends baseclass {
+declare class user extends baseclass {
     constructor(access_token: string);
     /**
      * Get my user information
@@ -208,3 +239,8 @@ export class MAL_API_USER extends baseclass {
      */
     me(fields?: me): Promise<object>;
 }
+declare module userWrapper {
+    export { user };
+}
+import MAL_API_USER = userWrapper.user;
+export { MAL_OAUTH2, MAL_API_ANIME, MAL_API_ANIME_LIST, MAL_API_MANGA, MAL_API_MANGA_LIST, MAL_API_USER };

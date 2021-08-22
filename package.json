@@ -24,7 +24,8 @@
     "scripts": {
         "publish": "clean-publish",
         "parcel": "parcel build ./src/node.ts --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./lib && minify.cmd lib",
-        "parcelbrowser": "parcel build ./src/browser.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist"
+        "parcelbrowser": "parcel build ./browser.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist",
+        "rollup": "rollup -c rollup.config.js"
     },
     "dependencies": {
         "crypto-js": "^4.1.1",
@@ -45,7 +46,8 @@
             "dtsconfig.json",
             "src",
             "minify.cmd",
-            "dist"
+            "dist",
+            "rollup.config.js"
         ],
         "fields": [
             "scripts",

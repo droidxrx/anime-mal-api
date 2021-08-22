@@ -1,4 +1,4 @@
-import { post } from "superagent";
+import * as superagent from "superagent";
 import { pkceChallenge, verifyChallenge } from "./pkce";
 
 export default class oauth2 {
@@ -40,7 +40,7 @@ export default class oauth2 {
         };
         this.redirect_uri && Object.assign(data, { redirect_uri: this.redirect_uri });
         return new Promise((resolve, reject) => {
-            const fet = post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
+            const fet = superagent.post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
             fet.then((response) => resolve(response.body)).catch((error) => reject(JSON.parse(error.response.text)));
         });
     }
@@ -53,7 +53,7 @@ export default class oauth2 {
             grant_type: "refresh_token",
         };
         return new Promise((resolve, reject) => {
-            const fet = post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
+            const fet = superagent.post(this.urlToken).send(data).type("application/x-www-form-urlencoded");
             fet.then((response) => resolve(response.body)).catch((error) => reject(JSON.parse(error.response.text)));
         });
     }
