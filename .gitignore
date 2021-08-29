@@ -1,14 +1,1 @@
 node_modules
-package-lock.json
-example/server/db.json
-.parcel-cache
-lib
-dist
-deno/
-dist/
-minify.cmd
-package.json
-rollup.config.js
-src/
-yarn-error.log
-types
