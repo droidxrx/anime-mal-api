@@ -1,0 +1,17 @@
+node_modules
+package-lock.json
+example/server/db.json
+.parcel-cache
+lib
+dist
+LICENSE
+README.md
+deno/
+dist/
+minify.cmd
+package.json
+rollup.config.js
+src/
+tsconfig.json
+yarn-error.log
+.vscode
