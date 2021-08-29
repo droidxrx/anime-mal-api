@@ -4,8 +4,6 @@ example/server/db.json
 .parcel-cache
 lib
 dist
-LICENSE
-README.md
 deno/
 dist/
 minify.cmd

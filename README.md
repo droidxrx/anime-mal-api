@@ -10,8 +10,3 @@
 ## License
 
 [MIT](LICENSE)
-
-[npm-image]: https://img.shields.io/npm/v/anime-mal-api.svg
-[npm-url]: https://npmjs.org/package/anime-mal-api
-[downloads-image]: https://img.shields.io/npm/dm/anime-mal-api.svg
-[downloads-url]: https://npmjs.org/package/anime-mal-api
