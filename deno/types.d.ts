@@ -1,0 +1,1 @@
+C:/Users/DroidXrX/Documents/Deno/anime-mal-api/types.d.ts
