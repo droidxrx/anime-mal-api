@@ -12,6 +12,5 @@ minify.cmd
 package.json
 rollup.config.js
 src/
-tsconfig.json
 yarn-error.log
-.vscode
+types
