@@ -1,0 +1,70 @@
+{
+    "name": "anime-mal-api",
+    "version": "1.0.0",
+    "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/droidxrx/anime-mal-api.git"
+    },
+    "keywords": [
+        "mal",
+        "mal-api",
+        "mal-token",
+        "mal-token-generate",
+        "pkce"
+    ],
+    "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/droidxrx/anime-mal-api/issues"
+    },
+    "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
+    "scripts": {
+        "publish": "clean-publish",
+        "parcel": "parcel build ./src/node.ts --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./lib && minify.cmd lib",
+        "parcelbrowser": "parcel build ./browser.html --no-source-maps --no-cache --no-content-hash --no-scope-hoist --no-optimize --dist-dir ./dist && minify.cmd dist",
+        "rollup": "rollup -c rollup.config.js"
+    },
+    "dependencies": {
+        "crypto-js": "^4.1.1",
+        "superagent": "^6.1.0"
+    },
+    "clean-publish": {
+        "files": [
+            ".git",
+            ".gitignore",
+            ".vscode",
+            "example",
+            "node_modules",
+            "typescript",
+            "test",
+            "package-lock.json",
+            "tsconfig.json",
+            "dtsgenerate.json",
+            "dtsconfig.json",
+            "src",
+            "minify.cmd",
+            "dist",
+            "rollup.config.js"
+        ],
+        "fields": [
+            "scripts",
+            "devDependencies",
+            "clean-publish"
+        ]
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.29.3",
+        "@typescript-eslint/parser": "^4.29.3",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "^2.24.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "3.4.1",
+        "eslint-plugin-react": "^7.24.0"
+    }
+}
