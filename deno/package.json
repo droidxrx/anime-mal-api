@@ -7,10 +7,5 @@
         "server": "deno run --allow-net --allow-read --allow-write --unstable ./example/server.ts",
         "build": "deno bundle -c tsconfig.json -q mod.ts mod.bundle.js && minify dist",
         "watch": "pm2 start ecosystem.config.js"
-    },
-    "devDependencies": {
-        "@rollup/plugin-node-resolve": "^13.0.4",
-        "rollup-plugin-dts": "^4.0.0",
-        "typescript": "^4.4.2"
     }
 }
