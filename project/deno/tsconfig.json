@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "allowJs": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "alwaysStrict": false,
+        "checkJs": false,
+        "keyofStringsOnly": false,
+        "noFallthroughCasesInSwitch": false,
+        "noImplicitAny": true,
+        "noImplicitReturns": false,
+        "noImplicitThis": true,
+        "noImplicitUseStrict": true,
+        "noStrictGenericChecks": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false
+    },
+    "exclude": ["*.config.js"]
+}
