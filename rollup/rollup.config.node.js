@@ -3,19 +3,21 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
-import pkg from "../nodejs/package.json";
+import pkg from "../project/nodejs/package.json";
 import path from "path";
 
-const rootDir = path.join(path.resolve(), "project/nodejs");
-const join = (fileorfolder) => path.join(rootDir, fileorfolder);
+const rootdir = path.join(path.resolve(), "project/nodejs");
+const input = path.join(rootdir, "index.ts");
+const output = {
+    dir: path.join(rootdir, "dist"),
+    format: "cjs",
+    exports: "named",
+};
+const tsconfig = path.join(rootdir, "tsconfig.json");
 
 export default {
-    input: join("index.ts"),
-    output: {
-        dir: join("dist"),
-        format: "cjs",
-        exports: "named",
-    },
+    input,
+    output,
     external: Object.keys(pkg.dependencies),
     plugins: [
         resolve(),
@@ -40,7 +42,7 @@ export default {
                 minified: false,
                 comments: false,
             },
-            tsconfig: join("tsconfig.json"),
+            tsconfig,
         }),
         terser({
             compress: true,
