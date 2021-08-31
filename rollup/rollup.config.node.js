@@ -6,7 +6,7 @@ import { terser } from "rollup-plugin-terser";
 import pkg from "../nodejs/package.json";
 import path from "path";
 
-const rootDir = path.join(path.resolve(), "nodejs");
+const rootDir = path.join(path.resolve(), "project/nodejs");
 const join = (fileorfolder) => path.join(rootDir, fileorfolder);
 
 export default {
