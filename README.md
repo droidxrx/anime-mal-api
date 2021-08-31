@@ -7,6 +7,8 @@
   </p>
 </p>
 
-## License
+# LICENSE
 
-[MIT](LICENSE)
+[MIT][license-url]
+
+[license-url]: https://github.com/droidxrx/anime-mal-api/blob/master/LICENSE
