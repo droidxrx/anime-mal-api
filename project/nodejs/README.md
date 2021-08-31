@@ -6,3 +6,10 @@
     <a href="https://github.com/droidxrx/anime-mal-api/tree/deno"><strong>Deno</strong></a><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><a href="#"><strong>Example</strong></a>
   </p>
 </p>
+
+# LICENSE
+
+[MIT][license-url]
+
+[license-url]: https://github.com/droidxrx/anime-mal-api/blob/master/LICENSE
+[npm-url]: https://npmjs.org/package/anime-mal-api
