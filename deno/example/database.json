@@ -1,7 +1,0 @@
-{
-    "pkce": { "code_challenge": "x", "code_verifier": "x" },
-    "token_type": "Bearer",
-    "expires_in": 1,
-    "access_token": "x",
-    "refresh_token": "x"
-}
