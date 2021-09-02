@@ -20,7 +20,7 @@ const config = {
 	},
 	external: Object.keys(pkg.dependencies),
 	plugins: [
-		resolve(),
+		resolve({ preferBuiltins: true, browser: false }),
 		commonjs(),
 		babel({ babelHelpers: "bundled" }),
 		ts({
@@ -36,7 +36,7 @@ const config = {
 		}),
 		terser({
 			compress: true,
-			mangle: false,
+			mangle: true,
 			format: {
 				comments: false,
 			},

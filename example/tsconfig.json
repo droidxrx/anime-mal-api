@@ -1,0 +1,9 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"allowJs": true
+	},
+	"files": ["./server.ts"],
+	"include": ["./router", "../project/nodejs/**/*.ts"]
+}

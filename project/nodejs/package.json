@@ -1,29 +1,32 @@
 {
-    "name": "anime-mal-api",
-    "version": "1.0.1",
-    "description": "An awesome library to connect with the new MyAnimeList's API v2!",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "rollup -c ./rollup.config.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/droidxrx/anime-mal-api.git"
-    },
-    "keywords": [
-        "anime",
-        "manga",
-        "mal",
-        "mal-api"
-    ],
-    "author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/droidxrx/anime-mal-api/issues"
-    },
-    "homepage": "https://github.com/droidxrx/anime-mal-api#readme",
-    "dependencies": {
-        "axios": "^0.21.1"
-    }
+	"name": "anime-mal-api",
+	"version": "1.0.1",
+	"description": "An awesome library to connect with the new MyAnimeList's API v2!",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "rollup -c ./rollup.config.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/droidxrx/anime-mal-api.git"
+	},
+	"keywords": [
+		"anime",
+		"manga",
+		"mal",
+		"mal-api"
+	],
+	"author": "DroidXrX <droidxrx@gmail.com> (https://github.com/droidxrx)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/droidxrx/anime-mal-api/issues"
+	},
+	"homepage": "https://github.com/droidxrx/anime-mal-api#readme",
+	"engines": {
+		"node": ">=14.17.6"
+	},
+	"dependencies": {
+		"superagent": "6.1.0"
+	}
 }

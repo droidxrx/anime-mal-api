@@ -1,0 +1,10 @@
+{
+	"exec": "set PORT=8080 && npx ts-node -P ./example/tsconfig.json -T ./example/server.ts",
+	"watch": ["./example", "./project/nodejs"],
+	"ext": "ts",
+	"ignore": ["*.d.ts"],
+	"events": {
+		"restart": "kill-port 8080 && cls"
+	},
+	"delay": 2000
+}

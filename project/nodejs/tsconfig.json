@@ -1,16 +1,10 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "lib": ["dom", "esnext"],
-        "alwaysStrict": false,
-        "noImplicitUseStrict": false,
-        "keyofStringsOnly": true,
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
-        "outDir": "./dist",
-        "declaration": true
-    },
-    "files": ["index.ts"],
-    "include": ["./src"]
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"declaration": true,
+		"resolveJsonModule": true,
+		"outDir": "./dist"
+	},
+	"files": ["index.ts"],
+	"include": ["./src"]
 }
