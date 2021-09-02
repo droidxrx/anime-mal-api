@@ -5,7 +5,7 @@ import * as router from "./router";
 const PORT = process.env.PORT.replace(" ", "");
 const HOMEURL = `http://localhost:${PORT}`;
 const options = {
-	CLIENT_ID: "0b9ce2d2253456ec76cb2b974fe5bc6f",
+	CLIENT_ID: "YOUR_CLIEN_ID",
 	DATABASE: "D:\\Repositories\\anime-mal-api\\example\\database.json",
 	URL_REDIRECT: `${HOMEURL}/oauth2`,
 };
