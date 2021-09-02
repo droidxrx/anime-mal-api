@@ -2,6 +2,6 @@
 	"files.exclude": {
 		"node_modules": true,
 		"yarn.lock": true,
-		"package-lock.json": false
+		"package-lock.json": true
 	}
 }
