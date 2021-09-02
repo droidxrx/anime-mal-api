@@ -12,5 +12,4 @@ const config = [
         plugins: [dts(), nodeResolve()],
     },
 ];
-
 export default config;
